@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Listado from "./Listado";
+
 
 
 // El componente Item no tiene componentes hijos.
@@ -14,13 +14,13 @@ import Listado from "./Listado";
 
 function Item({ id, producto,stock, aumenta}) {
 
-  const [stockitem, setstockitem] = useState(stock)
+  const [stockItem, setstockItem] = useState(stock)
   const { nombre, descripcion } = producto
   
-  const decrementarstock = () => {
-    if(stockitem > 0){
+  const decrementarStock = () => {
+    if(stockItem > 0){
       aumenta();
-    setstockitem(stockitem -1)
+    setstockItem(stockItem -1)
     }
     
   }
@@ -30,9 +30,9 @@ function Item({ id, producto,stock, aumenta}) {
       <h3>{nombre}</h3>
       <h5> {descripcion}  En stock:
         
-        <span>{stockitem || "Agotado"}</span></h5>
+        <span>{stockItem || "Agotado"}</span></h5>
       
-      <button onClick={decrementarstock} disabled={!stockitem} >{stockitem ? "Comprar" : "Sin Stock"}</button>
+      <button onClick={decrementarStock} disabled={!stockItem} >{stockItem ? "Comprar" : "Sin Stock"}</button>
      
     </div>
   )
